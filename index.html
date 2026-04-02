@@ -3,370 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Essence | Modern Seasonal Dining</title>
-    <meta name="description" content="Experience farm-to-table excellence at L'Essence. Artisanal ingredients, curated wines, and an atmosphere designed for connection.">
+    <title>Natassa Grill | Authentic Gyros & Currywurst</title>
     
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- DESIGN TOKENS --- */
         :root {
-            --accent: #A0522D; /* Deep Terracotta */
-            --accent-hover: #8B4513;
-            --bg-cream: #FAF7F2; /* Warm Off-white */
-            --bg-dark: #1A1A1A; /* Charcoal for footer/headers */
-            --text-main: #2D2D2D;
-            --text-muted: #5E5E5E;
+            --primary: #A13D2D; /* Deep Paprika/Red */
+            --primary-dark: #7A2E22;
+            --bg-warm: #FAF7F2;
+            --text-dark: #1A1A1A;
+            --text-muted: #555555;
             --white: #FFFFFF;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --container: 1200px;
+            --gold: #D4AF37;
+            --transition: all 0.3s ease;
         }
 
-        /* --- RESET & BASE --- */
+        /* --- RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
             font-family: 'DM Sans', sans-serif; 
-            background-color: var(--bg-cream); 
-            color: var(--text-main);
+            background-color: var(--bg-warm); 
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 80px 0; }
 
-        .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
-        .section-padding { padding: 100px 0; }
-
-        /* --- BUTTONS --- */
+        /* --- UI ELEMENTS --- */
         .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .rating-badge {
             display: inline-flex;
             align-items: center;
-            padding: 16px 32px;
-            font-weight: 500;
-            border-radius: 0px; /* Sharp edges for premium look */
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.85rem;
+            background: var(--white);
+            padding: 5px 12px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-weight: 700;
+            margin-bottom: 15px;
         }
+        .star { color: var(--gold); margin-right: 5px; }
 
-        .btn-primary { background: var(--accent); color: var(--white); border: 1px solid var(--accent); }
-        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-
-        .btn-outline { border: 1px solid var(--text-main); color: var(--text-main); }
-        .btn-outline:hover { background: var(--text-main); color: var(--white); }
-
-        /* --- NAVIGATION --- */
+        /* --- NAV --- */
         nav {
-            position: fixed;
-            top: 0; width: 100%; z-index: 1000;
-            padding: 30px 0;
-            transition: var(--transition);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 20px 0; transition: var(--transition);
         }
-
-        nav.scrolled {
-            background: rgba(250, 247, 242, 0.98);
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
+        nav.scrolled { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 12px 0; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: -1px; }
-        
-        .nav-links { display: flex; gap: 40px; align-items: center; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--accent); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-        }
+        .logo { font-size: 1.5rem; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; }
+        @media (max-width: 768px) { .nav-links { display: none; } }
 
         /* --- HERO --- */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
+            height: 90vh;
+            display: flex; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover; background-position: center;
+            color: var(--white); text-align: center;
         }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; max-width: 600px; margin-inline: auto; }
 
-        .hero-content h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 20px; line-height: 1.1; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 40px; font-style: italic; font-family: 'Playfair Display', serif; }
+        /* --- MENU SECTION --- */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .menu-category { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .menu-category h3 { border-bottom: 2px solid var(--bg-warm); padding-bottom: 10px; margin-bottom: 20px; color: var(--primary); }
+        .menu-item { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .item-info h4 { font-size: 1.1rem; }
+        .item-info p { font-size: 0.85rem; color: var(--text-muted); }
+        .price { font-weight: 700; color: var(--primary); }
 
-        /* --- FEATURED MENU --- */
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.8rem; margin-bottom: 10px; }
-        .section-title .subtitle { text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-size: 0.8rem; font-weight: 600; }
+        /* --- REVIEWS --- */
+        .reviews { background: #fdfcf9; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .review-card { background: var(--white); padding: 30px; border-radius: 8px; border: 1px solid #eee; }
+        .review-text { font-style: italic; margin-bottom: 15px; }
+        .review-author { font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
+        /* --- ABOUT & STATS --- */
+        .stats-bar { background: var(--primary); color: var(--white); padding: 40px 0; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .stat-item h2 { font-size: 2.5rem; }
+        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; opacity: 0.8; }
 
-        .menu-item { text-align: center; padding: 20px; border: 1px solid transparent; transition: var(--transition); }
-        .menu-item:hover { border-color: var(--accent); }
-        
-        .menu-img { 
-            width: 100%; aspect-ratio: 1/1; 
-            background-color: #ddd; margin-bottom: 20px; 
-            object-fit: cover;
-        }
+        /* --- CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+        .info-list { margin-top: 30px; }
+        .info-list li { margin-bottom: 20px; list-style: none; display: flex; gap: 15px; }
+        .map-placeholder { background: #eee; width: 100%; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 
-        .menu-item h3 { font-size: 1.4rem; margin-bottom: 10px; }
-        .menu-item .price { color: var(--accent); font-weight: 500; font-family: 'Playfair Display', serif; }
-
-        /* --- ABOUT / CULINARY STORY --- */
-        .story { background: #F1ECE4; }
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .story-content h2 { font-size: 2.5rem; margin-bottom: 25px; }
-        .story-image { aspect-ratio: 4/5; background: #ccc; }
-
-        @media (max-width: 768px) {
-            .story-grid { grid-template-columns: 1fr; }
-            .story-image { order: -1; }
-        }
-
-        /* --- INFO BAR (TRUST SIGNALS) --- */
-        .info-bar { background: var(--bg-dark); color: var(--white); padding: 40px 0; text-align: center; }
-        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .info-item h4 { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
-        .info-item p { font-size: 1.1rem; margin-top: 5px; }
-
-        @media (max-width: 768px) {
-            .info-grid { grid-template-columns: 1fr; gap: 30px; }
-        }
-
-        /* --- RESERVATIONS (CTA) --- */
-        .reservations { text-align: center; background: var(--white); }
-        .res-box { max-width: 600px; margin: 0 auto; border: 1px solid #eee; padding: 60px; }
-        .res-box h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        
-        /* --- FAQ --- */
-        .faq-section { background: var(--bg-cream); }
-        .faq-container { max-width: 700px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid #E0DCD5; padding: 25px 0; cursor: pointer; }
-        .faq-q { display: flex; justify-content: space-between; font-weight: 500; font-family: 'Playfair Display', serif; font-size: 1.2rem; }
-        .faq-a { max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-muted); padding-top: 0; }
-        .faq-item.active .faq-a { max-height: 150px; padding-top: 15px; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--bg-dark); color: var(--white); padding: 80px 0 40px; }
-        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-        .footer-logo { font-size: 2rem; margin-bottom: 20px; display: block; }
-        .footer-label { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.5; margin-bottom: 15px; display: block; }
-        
-        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: space-between; }
+        footer { background: var(--text-dark); color: var(--white); padding: 40px 0; text-align: center; font-size: 0.9rem; opacity: 0.7; }
 
         /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        @media (max-width: 768px) {
+            .contact-grid, .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="container nav-content">
-            <a href="#" class="logo">L'ESSENCE</a>
+            <a href="#" class="logo"><strong>NATASSA</strong> GRILL</a>
             <ul class="nav-links">
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#story">Our Story</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="#reserve" class="btn btn-primary" style="padding: 10px 20px;">Reserve</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="btn" style="padding: 8px 20px;">Order Takeout</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1 class="reveal">The Art of Slow Dining</h1>
-            <p class="reveal" style="transition-delay: 0.2s;">Locally Sourced. Seasonally Inspired. Thoughtfully Prepared.</p>
-            <div class="reveal" style="transition-delay: 0.4s;">
-                <a href="#reserve" class="btn btn-primary">Book a Table</a>
-                <a href="#menu" class="btn btn-outline" style="color: white; border-color: white; margin-left: 15px;">View Menu</a>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="reveal">
+                <div class="rating-badge">
+                    <span class="star">★</span> 4.5 Rating (282 Reviews)
+                </div>
+                <h1>Authentic Greek Soul. <br>German Grill Heart.</h1>
+                <p>From our signature Gyros to our legendary Currywurst, we serve honest, high-quality flavors that keep the neighborhood coming back.</p>
+                <a href="#menu" class="btn">View Our Menu</a>
+                <a href="#contact" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Find Us</a>
             </div>
         </div>
     </section>
 
-    <!-- INFO BAR -->
-    <section class="info-bar">
-        <div class="container info-grid">
-            <div class="info-item">
-                <h4>Location</h4>
-                <p>123 Culinary Ave, New York</p>
+    <!-- STATS -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h2>4.5</h2>
+                <p>Google Stars</p>
             </div>
-            <div class="info-item">
-                <h4>Hours</h4>
-                <p>Tue – Sun: 5pm – 11pm</p>
+            <div class="stat-item">
+                <h2>282</h2>
+                <p>Happy Reviews</p>
             </div>
-            <div class="info-item">
-                <h4>Contact</h4>
-                <p>+1 (555) 012-3456</p>
+            <div class="stat-item">
+                <h2>100%</h2>
+                <p>Fresh Ingredients</p>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED MENU -->
+    <!-- MENU SECTION -->
     <section class="section-padding" id="menu">
         <div class="container">
-            <div class="section-title reveal">
-                <span class="subtitle">Seasonal Highlights</span>
-                <h2>From the Kitchen</h2>
+            <div class="section-header reveal">
+                <h2>Popular Dishes</h2>
+                <p>The favorites that made Natassa Grill a local legend.</p>
             </div>
             
             <div class="menu-grid">
-                <!-- Item 1 -->
-                <div class="menu-item reveal">
-                    <!-- REPLACE: Your image link here -->
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600" alt="Dish" class="menu-img">
-                    <h3>Wild Forest Risotto</h3>
-                    <p class="price">$28</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Foraged mushrooms, 24-month aged parmesan, truffle essence.</p>
+                <!-- Category 1 -->
+                <div class="menu-category reveal">
+                    <h3>Greek Specialties</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Classic Gyros Plate</h4>
+                            <p>Hand-stacked rotisserie meat, tzatziki, onions.</p>
+                        </div>
+                        <span class="price">€14.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Mixed Grill Platter</h4>
+                            <p>A feast of souvlaki, bifteki, and gyros.</p>
+                        </div>
+                        <span class="price">€18.90</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Tzatziki & Pita</h4>
+                            <p>Our famous garlic-yogurt dip.</p>
+                        </div>
+                        <span class="price">€5.50</span>
+                    </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="menu-item reveal" style="transition-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=600" alt="Dish" class="menu-img">
-                    <h3>Pan Seared Scallops</h3>
-                    <p class="price">$34</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Cauliflower silk, pancetta crisp, brown butter vinaigrette.</p>
-                </div>
-                <!-- Item 3 -->
-                <div class="menu-item reveal" style="transition-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Dish" class="menu-img">
-                    <h3>Dry-Aged Ribeye</h3>
-                    <p class="price">$52</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Heritage beef, smoked bone marrow butter, charred leeks.</p>
-                </div>
-            </div>
 
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#" class="btn btn-outline">Explore Full Menu</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- STORY SECTION -->
-    <section class="section-padding story" id="story">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-content reveal">
-                    <span class="subtitle">Our Philosophy</span>
-                    <h2>A Love Letter to Local Farmers</h2>
-                    <p style="margin-bottom: 20px;">Founded in 2014, L'Essence began with a simple belief: that the best ingredients shouldn't travel more than 50 miles to reach your plate.</p>
-                    <p>Chef Julian Vance works directly with local growers to curate a menu that changes not by the season, but by the week, ensuring every bite is a reflection of the land’s current bounty.</p>
-                </div>
-                <div class="story-image reveal" style="background: url('https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80&w=800'); background-size: cover;"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="menu-grid">
-                <div class="reveal" style="text-align: center;">
-                    <p style="font-style: italic; font-size: 1.5rem; font-family: 'Playfair Display';">"The most authentic dining experience in the city. The wine pairings are masterful."</p>
-                    <p style="margin-top: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">— NY Food Journal</p>
-                </div>
-                <div class="reveal" style="text-align: center; transition-delay: 0.2s;">
-                    <p style="font-style: italic; font-size: 1.5rem; font-family: 'Playfair Display';">"Atmospheric, intimate, and undeniably delicious. A true neighborhood gem."</p>
-                    <p style="margin-top: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">— Michelin Guide 2023</p>
+                <!-- Category 2 -->
+                <div class="menu-category reveal" style="transition-delay: 0.2s;">
+                    <h3>Grill Classics</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Original Currywurst</h4>
+                            <p>Traditional sausage with our secret spicy sauce.</p>
+                        </div>
+                        <span class="price">€8.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Crispy Fries (Large)</h4>
+                            <p>Golden, salted to perfection.</p>
+                        </div>
+                        <span class="price">€4.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>The Spicy Grill Burger</h4>
+                            <p>Beef patty, jalapeños, house sauce.</p>
+                        </div>
+                        <span class="price">€11.00</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section-padding faq-section">
+    <!-- REVIEWS SECTION -->
+    <section class="section-padding reviews" id="reviews">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>Guest Information</h2>
+            <div class="section-header reveal">
+                <h2>Guest Experiences</h2>
+                <p>What our community says about us.</p>
             </div>
-            <div class="faq-container reveal">
-                <div class="faq-item">
-                    <div class="faq-q">What is your dress code? <span>+</span></div>
-                    <div class="faq-a">We suggest smart casual attire. We want you to feel comfortable yet polished.</div>
+            <div class="review-grid">
+                <div class="review-card reveal">
+                    <p class="review-text">"The gyros are actually authentic. Best tzatziki in the area and the team is always friendly."</p>
+                    <div class="review-author"><span class="star">★★★★★</span> Anna S.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-q">Do you accommodate vegan diets? <span>+</span></div>
-                    <div class="faq-a">Absolutely. Our chef prepares a dedicated plant-based tasting menu every evening.</div>
+                <div class="review-card reveal" style="transition-delay: 0.1s;">
+                    <p class="review-text">"Currywurst sauce is incredible. Huge portions and great price for the quality you get."</p>
+                    <div class="review-author"><span class="star">★★★★★</span> Mark T.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-q">Is there valet parking? <span>+</span></div>
-                    <div class="faq-a">Yes, valet parking is available for dinner guests starting at 5:00 PM.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">How far in advance should I book? <span>+</span></div>
-                    <div class="faq-a">We recommend booking 2 weeks in advance for weekends and 4 days for weekdays.</div>
+                <div class="review-card reveal" style="transition-delay: 0.2s;">
+                    <p class="review-text">"Been coming here for years. The atmosphere is cozy and the mixed grill never disappoints."</p>
+                    <div class="review-author"><span class="star">★★★★★</span> Julian V.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="section-padding reservations" id="reserve">
+    <!-- CONTACT / VISIT -->
+    <section class="section-padding" id="contact">
         <div class="container">
-            <div class="res-box reveal">
-                <span class="subtitle">Join Us</span>
-                <h2>Table Reservation</h2>
-                <p style="margin-bottom: 30px; color: var(--text-muted);">For parties larger than 6, please call us directly to ensure the best experience.</p>
-                <a href="#" class="btn btn-primary">Select Date & Time</a>
-                <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">Limited spots available for this Friday</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="location">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <span class="logo footer-logo">L'ESSENCE</span>
-                    <p style="opacity: 0.6; font-size: 0.9rem;">Modern seasonal dining focused on the purity of ingredients and the joy of connection.</p>
-                </div>
-                <div>
-                    <span class="footer-label">Visit</span>
-                    <p>123 Culinary Avenue<br>New York, NY 10012</p>
-                    <a href="#" style="font-size: 0.8rem; color: var(--accent); margin-top: 10px; display: block;">Get Directions</a>
-                </div>
-                <div>
-                    <span class="footer-label">Follow</span>
-                    <ul style="font-size: 0.9rem;">
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Newsletter</a></li>
+            <div class="contact-grid">
+                <div class="reveal">
+                    <h2>Visit Natassa Grill</h2>
+                    <p>Stop by for a quick lunch or a relaxed dinner with the family.</p>
+                    <ul class="info-list">
+                        <li><strong>📍 Address:</strong> [Insert Your Street Address], [City]</li>
+                        <li><strong>📞 Phone:</strong> [Insert Your Phone Number]</li>
+                        <li><strong>⏰ Hours:</strong> Mon-Sun: 11:30 - 22:00</li>
                     </ul>
+                    <a href="tel:YOUR_PHONE" class="btn">Call for Takeout</a>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <!-- REPLACE: Replace this div with an actual Google Maps iframe for your address -->
+                    <div class="map-placeholder">
+                        <p style="color: #999; text-align: center; padding: 20px;">[Google Map Image/Iframe of Natassa Grill]</p>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 L'Essence Restaurant Group.</p>
-                <p>Designed for Taste.</p>
-            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Natassa Grill. All Rights Reserved. | 4.5 Stars / 282 Reviews</p>
         </div>
     </footer>
 
     <script>
-        // 1. Navbar Scroll Effect
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // 2. Reveal on Scroll
+        // Reveal animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -374,13 +313,6 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // 3. Simple FAQ Accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
     </script>
 </body>
 </html>
