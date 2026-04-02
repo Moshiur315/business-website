@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natassa Grill | Authentic Gyros & Currywurst</title>
+    <title>Natassa Grill Gelsenkirchen | Gyros, Currywurst & Mehr</title>
+    <meta name="description" content="Natassa Grill in Gelsenkirchen-Hassel. Bester Gyros, Currywurst und Grillspezialitäten in der Giebelstr. 11. Täglich von 16:00 bis 22:00 Uhr geöffnet.">
     
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,14 +13,14 @@
 
     <style>
         :root {
-            --primary: #A13D2D; /* Deep Paprika/Red */
+            --primary: #A13D2D; /* Tiefes Grill-Rot */
             --primary-dark: #7A2E22;
             --bg-warm: #FAF7F2;
             --text-dark: #1A1A1A;
             --text-muted: #555555;
             --white: #FFFFFF;
             --gold: #D4AF37;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* --- RESET --- */
@@ -33,11 +34,11 @@
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
 
-        /* --- UI ELEMENTS --- */
+        /* --- BUTTONS --- */
         .btn {
             display: inline-block;
             padding: 14px 28px;
@@ -48,87 +49,85 @@
             letter-spacing: 1px;
             font-size: 0.85rem;
             border-radius: 4px;
-            transition: var(--transition);
-            border: none;
             cursor: pointer;
+            border: none;
         }
-
         .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            background: var(--white);
-            padding: 5px 12px;
-            border-radius: 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .star { color: var(--gold); margin-right: 5px; }
-
-        /* --- NAV --- */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             padding: 20px 0; transition: var(--transition);
         }
-        nav.scrolled { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 12px 0; }
+        nav.scrolled { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.08); padding: 12px 0; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; color: var(--primary); }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; }
+        .logo { font-size: 1.4rem; color: var(--primary); letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--primary); }
         @media (max-width: 768px) { .nav-links { display: none; } }
 
         /* --- HERO --- */
         .hero {
-            height: 90vh;
+            height: 85vh;
             display: flex; align-items: center;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1600');
+                        url('https://images.unsplash.com/photo-1529692236671-f1f6e9460272?auto=format&fit=crop&q=80&w=1600');
             background-size: cover; background-position: center;
             color: var(--white); text-align: center;
         }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; max-width: 600px; margin-inline: auto; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 35px; max-width: 650px; margin-inline: auto; font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* --- MENU SECTION --- */
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5rem; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .menu-category { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .menu-category h3 { border-bottom: 2px solid var(--bg-warm); padding-bottom: 10px; margin-bottom: 20px; color: var(--primary); }
-        .menu-item { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .item-info h4 { font-size: 1.1rem; }
-        .item-info p { font-size: 0.85rem; color: var(--text-muted); }
-        .price { font-weight: 700; color: var(--primary); }
-
-        /* --- REVIEWS --- */
-        .reviews { background: #fdfcf9; }
-        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .review-card { background: var(--white); padding: 30px; border-radius: 8px; border: 1px solid #eee; }
-        .review-text { font-style: italic; margin-bottom: 15px; }
-        .review-author { font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-
-        /* --- ABOUT & STATS --- */
+        /* --- STATS BAR --- */
         .stats-bar { background: var(--primary); color: var(--white); padding: 40px 0; text-align: center; }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-        .stat-item h2 { font-size: 2.5rem; }
-        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; opacity: 0.8; }
+        .stat-item h2 { font-size: 2.5rem; margin-bottom: 5px; }
+        .stat-item p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; opacity: 0.9; }
 
-        /* --- CONTACT --- */
-        .contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+        /* --- MENU --- */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 10px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .menu-category { background: var(--white); padding: 35px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-top: 5px solid var(--primary); }
+        .menu-category h3 { margin-bottom: 25px; color: var(--primary); font-size: 1.6rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .menu-item { display: flex; justify-content: space-between; margin-bottom: 18px; align-items: flex-start; }
+        .item-info h4 { font-size: 1.1rem; margin-bottom: 4px; }
+        .item-info p { font-size: 0.85rem; color: var(--text-muted); }
+        .price { font-weight: 700; color: var(--primary); font-size: 1.05rem; }
+
+        /* --- CONTACT & MAP --- */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
         .info-list { margin-top: 30px; }
-        .info-list li { margin-bottom: 20px; list-style: none; display: flex; gap: 15px; }
-        .map-placeholder { background: #eee; width: 100%; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .info-list li { margin-bottom: 25px; list-style: none; }
+        .info-list strong { display: block; color: var(--primary); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .info-list p { font-size: 1.1rem; font-weight: 500; }
+        
+        .map-container { 
+            width: 100%; height: 450px; border-radius: 12px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee;
+        }
 
-        footer { background: var(--text-dark); color: var(--white); padding: 40px 0; text-align: center; font-size: 0.9rem; opacity: 0.7; }
+        /* --- REVIEWS --- */
+        .reviews { background: #fdfcf9; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .review-card { background: var(--white); padding: 30px; border-radius: 8px; border: 1px solid #f0f0f0; }
+        .star-row { color: var(--gold); margin-bottom: 15px; font-size: 0.9rem; }
+        .review-text { font-style: italic; color: var(--text-muted); margin-bottom: 15px; }
+        .review-author { font-weight: 700; font-size: 0.9rem; }
+
+        footer { background: var(--text-dark); color: var(--white); padding: 50px 0; text-align: center; }
+        .footer-bottom { opacity: 0.5; font-size: 0.8rem; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
 
         /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            .contact-grid, .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 25px; }
+            .hero h1 { font-size: 2.6rem; }
+            .map-container { height: 350px; }
         }
     </style>
 </head>
@@ -138,25 +137,23 @@
         <div class="container nav-content">
             <a href="#" class="logo"><strong>NATASSA</strong> GRILL</a>
             <ul class="nav-links">
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="btn" style="padding: 8px 20px;">Order Takeout</a></li>
+                <li><a href="#menu">Speisekarte</a></li>
+                <li><a href="#bewertungen">Bewertungen</a></li>
+                <li><a href="#kontakt">Kontakt & Anfahrt</a></li>
+                <li><a href="tel:0209596555" class="btn" style="padding: 10px 20px;">0209 596555</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
             <div class="reveal">
-                <div class="rating-badge">
-                    <span class="star">★</span> 4.5 Rating (282 Reviews)
-                </div>
-                <h1>Authentic Greek Soul. <br>German Grill Heart.</h1>
-                <p>From our signature Gyros to our legendary Currywurst, we serve honest, high-quality flavors that keep the neighborhood coming back.</p>
-                <a href="#menu" class="btn">View Our Menu</a>
-                <a href="#contact" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Find Us</a>
+                <p style="text-transform: uppercase; letter-spacing: 3px; font-style: normal; margin-bottom: 10px;">Tradition in Gelsenkirchen-Hassel</p>
+                <h1>Frisch vom Grill. <br>Direkt ins Herz.</h1>
+                <p>Genießen Sie griechische Spezialitäten und deutsche Grillklassiker in familiärer Atmosphäre.</p>
+                <a href="#menu" class="btn">Speisekarte ansehen</a>
+                <a href="tel:0209596555" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Jetzt Bestellen</a>
             </div>
         </div>
     </section>
@@ -166,15 +163,15 @@
         <div class="container stats-grid">
             <div class="stat-item">
                 <h2>4.5</h2>
-                <p>Google Stars</p>
+                <p>Sterne auf Google</p>
             </div>
             <div class="stat-item">
                 <h2>282</h2>
-                <p>Happy Reviews</p>
+                <p>Echte Rezensionen</p>
             </div>
             <div class="stat-item">
-                <h2>100%</h2>
-                <p>Fresh Ingredients</p>
+                <h2>Täglich</h2>
+                <p>Frische Zubereitung</p>
             </div>
         </div>
     </section>
@@ -183,132 +180,154 @@
     <section class="section-padding" id="menu">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Popular Dishes</h2>
-                <p>The favorites that made Natassa Grill a local legend.</p>
+                <h2>Unsere Spezialitäten</h2>
+                <p>Qualität, die man schmeckt – seit vielen Jahren in Gelsenkirchen.</p>
             </div>
             
             <div class="menu-grid">
-                <!-- Category 1 -->
                 <div class="menu-category reveal">
-                    <h3>Greek Specialties</h3>
+                    <h3>Griechische Küche</h3>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Classic Gyros Plate</h4>
-                            <p>Hand-stacked rotisserie meat, tzatziki, onions.</p>
+                            <h4>Gyros Komplett</h4>
+                            <p>Mit Tzatziki, Zwiebeln, Pommes und Salatbeilage.</p>
                         </div>
-                        <span class="price">€14.50</span>
+                        <span class="price">14,50 €</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Mixed Grill Platter</h4>
-                            <p>A feast of souvlaki, bifteki, and gyros.</p>
+                            <h4>Souvlaki Spieße</h4>
+                            <p>Zwei Fleischspieße vom Grill mit hausgemachter Kräuterbutter.</p>
                         </div>
-                        <span class="price">€18.90</span>
+                        <span class="price">13,90 €</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Tzatziki & Pita</h4>
-                            <p>Our famous garlic-yogurt dip.</p>
+                            <h4>Bifteki Spezial</h4>
+                            <p>Hacksteak gefüllt mit Schafskäse und Metaxasauce.</p>
                         </div>
-                        <span class="price">€5.50</span>
+                        <span class="price">16,50 €</span>
                     </div>
                 </div>
 
-                <!-- Category 2 -->
                 <div class="menu-category reveal" style="transition-delay: 0.2s;">
-                    <h3>Grill Classics</h3>
+                    <h3>Grill & Imbiss</h3>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Original Currywurst</h4>
-                            <p>Traditional sausage with our secret spicy sauce.</p>
+                            <h4>Currywurst Klassik</h4>
+                            <p>Die legendäre Wurst mit unserer würzigen Haussauce.</p>
                         </div>
-                        <span class="price">€8.50</span>
+                        <span class="price">4,20 €</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Crispy Fries (Large)</h4>
-                            <p>Golden, salted to perfection.</p>
+                            <h4>Taxiteller</h4>
+                            <p>Die Kult-Kombi: Currywurst, Pommes, Mayo und eine Portion Gyros.</p>
                         </div>
-                        <span class="price">€4.50</span>
+                        <span class="price">12,90 €</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>The Spicy Grill Burger</h4>
-                            <p>Beef patty, jalapeños, house sauce.</p>
+                            <h4>Hähnchenschnitzel</h4>
+                            <p>Frisch paniert, dazu Pommes frites und kleiner Salat.</p>
                         </div>
-                        <span class="price">€11.00</span>
+                        <span class="price">11,50 €</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
-    <section class="section-padding reviews" id="reviews">
+    <!-- REVIEWS -->
+    <section class="section-padding reviews" id="bewertungen">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Guest Experiences</h2>
-                <p>What our community says about us.</p>
+                <h2>Das sagen unsere Gäste</h2>
             </div>
             <div class="review-grid">
                 <div class="review-card reveal">
-                    <p class="review-text">"The gyros are actually authentic. Best tzatziki in the area and the team is always friendly."</p>
-                    <div class="review-author"><span class="star">★★★★★</span> Anna S.</div>
+                    <div class="star-row">★★★★★</div>
+                    <p class="review-text">"Bester Grill in Hassel. Das Gyros ist immer top gewürzt und das Personal super freundlich."</p>
+                    <p class="review-author">— Andreas M.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.1s;">
-                    <p class="review-text">"Currywurst sauce is incredible. Huge portions and great price for the quality you get."</p>
-                    <div class="review-author"><span class="star">★★★★★</span> Mark T.</div>
+                    <div class="star-row">★★★★★</div>
+                    <p class="review-text">"Sehr sauberes Lokal und klasse Portionen. Currywurst Pommes Schranke ist ein Muss!"</p>
+                    <p class="review-author">— Sabine W.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.2s;">
-                    <p class="review-text">"Been coming here for years. The atmosphere is cozy and the mixed grill never disappoints."</p>
-                    <div class="review-author"><span class="star">★★★★★</span> Julian V.</div>
+                    <div class="star-row">★★★★★</div>
+                    <p class="review-text">"Wir bestellen hier regelmäßig. Das Essen ist immer heiß und die Qualität konstant hoch."</p>
+                    <p class="review-author">— Christian H.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT / VISIT -->
-    <section class="section-padding" id="contact">
+    <!-- CONTACT & ADDRESS -->
+    <section class="section-padding" id="kontakt">
         <div class="container">
             <div class="contact-grid">
                 <div class="reveal">
-                    <h2>Visit Natassa Grill</h2>
-                    <p>Stop by for a quick lunch or a relaxed dinner with the family.</p>
+                    <h2>Kontakt & Abholung</h2>
+                    <p style="margin-bottom: 30px;">Besuchen Sie uns in Gelsenkirchen-Hassel oder rufen Sie uns für eine Vorbestellung an.</p>
+                    
                     <ul class="info-list">
-                        <li><strong>📍 Address:</strong> [Insert Your Street Address], [City]</li>
-                        <li><strong>📞 Phone:</strong> [Insert Your Phone Number]</li>
-                        <li><strong>⏰ Hours:</strong> Mon-Sun: 11:30 - 22:00</li>
+                        <li>
+                            <strong>📍 Standort</strong>
+                            <p>Giebelstr. 11<br>45897 Gelsenkirchen</p>
+                        </li>
+                        <li>
+                            <strong>📞 Telefon</strong>
+                            <p><a href="tel:0209596555" style="color: var(--primary);">0209 596555</a></p>
+                        </li>
+                        <li>
+                            <strong>⏰ Öffnungszeiten</strong>
+                            <p>Täglich: 16:00 – 22:00 Uhr</p>
+                        </li>
                     </ul>
-                    <a href="tel:YOUR_PHONE" class="btn">Call for Takeout</a>
+                    
+                    <a href="tel:0209596555" class="btn" style="margin-top: 20px;">Jetzt anrufen</a>
                 </div>
+                
                 <div class="reveal" style="transition-delay: 0.2s;">
-                    <!-- REPLACE: Replace this div with an actual Google Maps iframe for your address -->
-                    <div class="map-placeholder">
-                        <p style="color: #999; text-align: center; padding: 20px;">[Google Map Image/Iframe of Natassa Grill]</p>
+                    <div class="map-container">
+                        <!-- REAL GOOGLE MAPS IFRAME FOR GIEBELSTR. 11 -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.564634796071!2d7.042738377045108!3d51.594519904423455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8e5777893962d%3A0xc3b8a1c97034c449!2sGiebelstra%C3%9Fe%2011%2C%2045897%20Gelsenkirchen!5e0!3m2!1sde!2sde!4v1715870000000!5m2!1sde!2sde" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Natassa Grill. All Rights Reserved. | 4.5 Stars / 282 Reviews</p>
+            <h3 style="margin-bottom: 10px;">NATASSA GRILL</h3>
+            <p>Giebelstr. 11 | 45897 Gelsenkirchen | Tel: 0209 596555</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Natassa Grill Gelsenkirchen. Alle Rechte vorbehalten. | 4.5 Sterne bei 282 Rezensionen.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
+        // Navbar Animation beim Scrollen
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Reveal animations
+        // Reveal Animationen beim Scrollen
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
         }, { threshold: 0.1 });
 
