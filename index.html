@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natassa Grill Gelsenkirchen | Gyros, Currywurst & Mehr</title>
-    <meta name="description" content="Natassa Grill in Gelsenkirchen-Schaffrath. Bester Gyros, Currywurst und Grillspezialitäten in der Giebelstr. 11. Täglich von 16:00 bis 22:00 Uhr geöffnet.">
+    <title>Natassa Grill | Authentic Gyros & Grill Classics in Gelsenkirchen-Schaffrath</title>
+    <meta name="description" content="Natassa Grill in Gelsenkirchen-Schaffrath. Serving the best Gyros, Currywurst, and Grill specialties at Giebelstr. 11. Open daily 16:00 - 22:00.">
     
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            --primary: #A13D2D; /* Tiefes Grill-Rot */
+            --primary: #A13D2D; 
             --primary-dark: #7A2E22;
             --bg-warm: #FAF7F2;
             --text-dark: #1A1A1A;
@@ -62,8 +62,12 @@
         nav.scrolled { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.08); padding: 12px 0; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.4rem; color: var(--primary); letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* FIX: Reduced gap from 25px to 15px */
+        .nav-links { display: flex; gap: 15px; align-items: center; }
+        
+        /* FIX: Reduced font size from 0.85rem to 0.75rem for menu links */
+        .nav-links a { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--primary); }
         @media (max-width: 768px) { .nav-links { display: none; } }
 
@@ -138,8 +142,8 @@
             <a href="#" class="logo"><strong>NATASSA</strong> GRILL</a>
             <ul class="nav-links">
                 <li><a href="#menu">Speisekarte</a></li>
-                <li><a href="#bewertungen">Bewertungen</a></li>
-                <li><a href="#kontakt">Kontakt & Anfahrt</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Location</a></li>
                 <li><a href="tel:0209596555" class="btn" style="padding: 10px 20px;">0209 596555</a></li>
             </ul>
         </div>
@@ -149,11 +153,11 @@
     <section class="hero">
         <div class="container">
             <div class="reveal">
-                <p style="text-transform: uppercase; letter-spacing: 3px; font-style: normal; margin-bottom: 10px;">Tradition in Gelsenkirchen-Hassel</p>
-                <h1>Frisch vom Grill. <br>Direkt ins Herz.</h1>
-                <p>Genießen Sie griechische Spezialitäten und deutsche Grillklassiker in familiärer Atmosphäre.</p>
-                <a href="#menu" class="btn">Speisekarte ansehen</a>
-                <a href="tel:0209596555" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Jetzt Bestellen</a>
+                <p style="text-transform: uppercase; letter-spacing: 3px; font-style: normal; margin-bottom: 10px;">Tradition in Gelsenkirchen-Schaffrath</p>
+                <h1>Authentic Greek Soul. <br>Classic German Grill.</h1>
+                <p>Experience the finest Gyros and Grill specialties in Gelsenkirchen-Schaffrath, prepared fresh daily with the highest quality ingredients.</p>
+                <a href="#menu" class="btn">View Menu</a>
+                <a href="tel:0209596555" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Call to Order</a>
             </div>
         </div>
     </section>
@@ -163,15 +167,15 @@
         <div class="container stats-grid">
             <div class="stat-item">
                 <h2>4.5</h2>
-                <p>Sterne auf Google</p>
+                <p>Google Rating</p>
             </div>
             <div class="stat-item">
                 <h2>282</h2>
-                <p>Echte Rezensionen</p>
+                <p>Happy Reviews</p>
             </div>
             <div class="stat-item">
-                <h2>Täglich</h2>
-                <p>Frische Zubereitung</p>
+                <h2>Daily</h2>
+                <p>Fresh Preparation</p>
             </div>
         </div>
     </section>
@@ -180,58 +184,58 @@
     <section class="section-padding" id="menu">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Unsere Spezialitäten</h2>
-                <p>Qualität, die man schmeckt – seit vielen Jahren in Gelsenkirchen.</p>
+                <h2>Popular Dishes</h2>
+                <p>The favorites that made Natassa Grill a local legend in Schaffrath.</p>
             </div>
             
             <div class="menu-grid">
                 <div class="menu-category reveal">
-                    <h3>Griechische Küche</h3>
+                    <h3>Greek Specialties</h3>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Gyros Komplett</h4>
-                            <p>Mit Tzatziki, Zwiebeln, Pommes und Salatbeilage.</p>
+                            <h4>Classic Gyros Plate</h4>
+                            <p>Hand-stacked rotisserie meat, tzatziki, onions, and fries.</p>
                         </div>
-                        <span class="price">14,50 €</span>
+                        <span class="price">€14.50</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Souvlaki Spieße</h4>
-                            <p>Zwei Fleischspieße vom Grill mit hausgemachter Kräuterbutter.</p>
+                            <h4>Mixed Grill Platter</h4>
+                            <p>A feast of souvlaki, bifteki, and gyros with salad.</p>
                         </div>
-                        <span class="price">13,90 €</span>
+                        <span class="price">€19.50</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Bifteki Spezial</h4>
-                            <p>Hacksteak gefüllt mit Schafskäse und Metaxasauce.</p>
+                            <h4>Bifteki Special</h4>
+                            <p>Greek-style burger filled with feta cheese and herbs.</p>
                         </div>
-                        <span class="price">16,50 €</span>
+                        <span class="price">€16.50</span>
                     </div>
                 </div>
 
                 <div class="menu-category reveal" style="transition-delay: 0.2s;">
-                    <h3>Grill & Imbiss</h3>
+                    <h3>Grill Classics</h3>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Currywurst Klassik</h4>
-                            <p>Die legendäre Wurst mit unserer würzigen Haussauce.</p>
+                            <h4>Original Currywurst</h4>
+                            <p>The German icon with our signature spicy sauce.</p>
                         </div>
-                        <span class="price">4,20 €</span>
+                        <span class="price">€4.20</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Taxiteller</h4>
-                            <p>Die Kult-Kombi: Currywurst, Pommes, Mayo und eine Portion Gyros.</p>
+                            <h4>Taxi Plate</h4>
+                            <p>The local legend: Currywurst, fries, mayo, and gyros.</p>
                         </div>
-                        <span class="price">12,90 €</span>
+                        <span class="price">€12.90</span>
                     </div>
                     <div class="menu-item">
                         <div class="item-info">
-                            <h4>Hähnchenschnitzel</h4>
-                            <p>Frisch paniert, dazu Pommes frites und kleiner Salat.</p>
+                            <h4>Crispy Fries (Large)</h4>
+                            <p>Golden, perfectly salted and crispy.</p>
                         </div>
-                        <span class="price">11,50 €</span>
+                        <span class="price">€4.50</span>
                     </div>
                 </div>
             </div>
@@ -239,25 +243,25 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="section-padding reviews" id="bewertungen">
+    <section class="section-padding reviews" id="reviews">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Das sagen unsere Gäste</h2>
+                <h2>What Our Guests Say</h2>
             </div>
             <div class="review-grid">
                 <div class="review-card reveal">
                     <div class="star-row">★★★★★</div>
-                    <p class="review-text">"Bester Grill in Hassel. Das Gyros ist immer top gewürzt und das Personal super freundlich."</p>
+                    <p class="review-text">"Best grill in the area. The gyros are always perfectly seasoned and the team is very friendly."</p>
                     <p class="review-author">— Andreas M.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.1s;">
                     <div class="star-row">★★★★★</div>
-                    <p class="review-text">"Sehr sauberes Lokal und klasse Portionen. Currywurst Pommes Schranke ist ein Muss!"</p>
+                    <p class="review-text">"Very clean place and generous portions. The Currywurst is a must-try!"</p>
                     <p class="review-author">— Sabine W.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.2s;">
                     <div class="star-row">★★★★★</div>
-                    <p class="review-text">"Wir bestellen hier regelmäßig. Das Essen ist immer heiß und die Qualität konstant hoch."</p>
+                    <p class="review-text">"Regular customer here. The food is always hot and the quality is consistently high."</p>
                     <p class="review-author">— Christian H.</p>
                 </div>
             </div>
@@ -265,36 +269,35 @@
     </section>
 
     <!-- CONTACT & ADDRESS -->
-    <section class="section-padding" id="kontakt">
+    <section class="section-padding" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="reveal">
-                    <h2>Kontakt & Abholung</h2>
-                    <p style="margin-bottom: 30px;">Besuchen Sie uns in Gelsenkirchen-Hassel oder rufen Sie uns für eine Vorbestellung an.</p>
+                    <h2>Visit Us</h2>
+                    <p style="margin-bottom: 30px;">Stop by Gelsenkirchen-Schaffrath for a meal or call us for quick takeout.</p>
                     
                     <ul class="info-list">
                         <li>
-                            <strong>📍 Standort</strong>
+                            <strong>📍 Address</strong>
                             <p>Giebelstr. 11<br>45897 Gelsenkirchen</p>
                         </li>
                         <li>
-                            <strong>📞 Telefon</strong>
+                            <strong>📞 Phone</strong>
                             <p><a href="tel:0209596555" style="color: var(--primary);">0209 596555</a></p>
                         </li>
                         <li>
-                            <strong>⏰ Öffnungszeiten</strong>
-                            <p>Täglich: 16:00 – 22:00 Uhr</p>
+                            <strong>⏰ Opening Hours</strong>
+                            <p>Everyday: 16:00 – 22:00</p>
                         </li>
                     </ul>
                     
-                    <a href="tel:0209596555" class="btn" style="margin-top: 20px;">Jetzt anrufen</a>
+                    <a href="tel:0209596555" class="btn" style="margin-top: 20px;">Call for Takeout</a>
                 </div>
                 
                 <div class="reveal" style="transition-delay: 0.2s;">
                     <div class="map-container">
-                        <!-- REAL GOOGLE MAPS IFRAME FOR GIEBELSTR. 11 -->
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.564634796071!2d7.042738377045108!3d51.594519904423455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8e5777893962d%3A0xc3b8a1c97034c449!2sGiebelstra%C3%9Fe%2011%2C%2045897%20Gelsenkirchen!5e0!3m2!1sde!2sde!4v1715870000000!5m2!1sde!2sde" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.564634796071!2d7.042738377045108!3d51.594519904423455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8e5777893962d%3A0xc3b8a1c97034c449!2sGiebelstra%C3%9Fe%2011%2C%2045897%20Gelsenkirchen!5e0!3m2!1sen!2sde!4v1715870000000!5m2!1sen!2sde" 
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -309,20 +312,18 @@
             <h3 style="margin-bottom: 10px;">NATASSA GRILL</h3>
             <p>Giebelstr. 11 | 45897 Gelsenkirchen | Tel: 0209 596555</p>
             <div class="footer-bottom">
-                <p>&copy; 2024 Natassa Grill Gelsenkirchen. Alle Rechte vorbehalten. | 4.5 Sterne bei 282 Rezensionen.</p>
+                <p>&copy; 2024 Natassa Grill Gelsenkirchen. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navbar Animation beim Scrollen
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Reveal Animationen beim Scrollen
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
